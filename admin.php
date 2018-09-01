@@ -21,23 +21,6 @@
       $connection = mysqli_connect("localhost","id799516_heberro1","2580romain","id799516_heberro1");
       echo mysqli_connect_error($connection);
 
-      /*
-      if ( !empty($_POST["name"]) and !empty($_POST["desc"]) and !empty($_POST["image"]) ){
-        $name = $_POST["name"];
-        $description = $_POST["desc"];
-        $image = $_POST["image"];
-
-        $request = "SELECT MAX(id) FROM marchandises";
-        $res = mysqli_query($connection, $request);
-        ++$res;
-
-        $request = "INSERT INTO marchandises
-        VALUES ('$res','$name',0,'$image','$description')";
-        mysqli_query($connection, $request);
-
-      }
-      */
-
       //Velux
       $req = "SELECT adresseimg
       FROM machandises
