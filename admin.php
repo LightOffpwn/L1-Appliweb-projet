@@ -18,12 +18,6 @@
     <p>Bonjour, monsieur administrateur</p>
 
     <?php
-      /*
-      $server = "inf-mysql.univ-rouen.fr";
-      $user = "heberro1";
-      $mdp = "09071998";
-      $bdd = "heberro12";
-      */
       $connection = mysqli_connect("localhost","id799516_heberro1","2580romain","id799516_heberro1");
       echo mysqli_connect_error($connection);
 
