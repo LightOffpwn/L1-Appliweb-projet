@@ -1,0 +1,86 @@
+html {
+  background: repeat
+}
+body {
+  background-image: url(http://www.designbolts.com/wp-content/uploads/2013/02/Zebra-3D-Grey-Seamless-Pattern-For-Website-Background.jpg);
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+header,
+.header_link {
+  background-color : rgb(100, 130, 200);
+  color : white;
+  font-size : 20px;
+  font-family : open sans, arial, serif;
+  text-shadow: 2px 2px #666666;
+  padding : 3px;
+}
+
+p {
+  font-size : 20px;
+  font-family : open sans, arial, serif;
+  color : rgb(100, 100, 100);
+}
+
+main {
+  margin-right : auto;
+  margin-left : auto;
+  font-family : open sans, arial, serif;
+  width : 70%;
+  padding-bottom: 65px;
+}
+
+.liste_article {
+  text-align : center;
+  font-size : 30px;
+  font-family : open sans, arial, serif;
+  color : rgb(100, 100, 100);
+}
+
+.succes {
+  color: green
+}
+table{
+  margin: auto;
+}
+.article
+{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(220,220,220);
+  border: groove 4px;
+  border-radius: 50px;
+	font-size : 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+footer {
+  height: 65px;
+  text-align : center;
+  background : rgb(120, 120, 120);
+  background : rgba(120, 120, 120, 0.75);
+  font-size : 12px;
+  color : white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+msg_error {
+  font-size : 18px;
+  color : red
+}
