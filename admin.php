@@ -5,6 +5,7 @@
     <title>Webos</title>
     <meta charset="utf-8">
   </head>
+  
   <body>
     <div class='wrapper'>
     <header>
@@ -15,11 +16,17 @@
     <main>
 
     <p>Bonjour, monsieur administrateur</p>
-
+    
     <?php
-      $connection = mysqli_connect("localhost","id799516_heberro1","2580romain","id799516_heberro1");
+      
+      $server = "inf-mysql.univ-rouen.fr";
+      $user = "heberro1";
+      $mdp = "09071998";
+      $bdd = "heberro12";
+      
+      $connection = mysqli_connect($server,$user,$mdp,$bdd);
       echo mysqli_connect_error($connection);
-
+      
       //Velux
       $req = "SELECT adresseimg
       FROM machandises
@@ -28,16 +35,16 @@
       $row = $result->fetch_array();
       $im_Velux  = $row[0];
       echo mysqli_error($connection);
-
+ 
       $req = "SELECT quantite
       FROM machandises
       WHERE nom = 'Velux'";
-      $result = mysqli_query($connection, $req);
+      $result = mysqli_query($connection, $req); 
       $row = $result->fetch_array();
       $quantite_Velux  = $row[0];
       echo mysqli_error($connection);
-
-
+      
+      
       //Windows10
       $req = "SELECT adresseimg
       FROM machandises
@@ -46,15 +53,15 @@
       $row = $result->fetch_array();
       $im_Windows10  = $row[0];
       echo mysqli_error($connection);
-
+ 
       $req = "SELECT quantite
       FROM machandises
       WHERE nom = 'Windows10'";
-      $result = mysqli_query($connection, $req);
+      $result = mysqli_query($connection, $req); 
       $row = $result->fetch_array();
       $quantite_Windows10  = $row[0];
       echo mysqli_error($connection);
-
+      
       //MacOs
       $req = "SELECT adresseimg
       FROM machandises
@@ -63,15 +70,15 @@
       $row = $result->fetch_array();
       $im_MacOs  = $row[0];
       echo mysqli_error($connection);
-
+ 
       $req = "SELECT quantite
       FROM machandises
       WHERE nom = 'MacOS'";
-      $result = mysqli_query($connection, $req);
+      $result = mysqli_query($connection, $req); 
       $row = $result->fetch_array();
       $quantite_MacOs  = $row[0];
       echo mysqli_error($connection);
-
+      
       //Ubuntu
       $req = "SELECT adresseimg
       FROM machandises
@@ -80,17 +87,17 @@
       $row = $result->fetch_array();
       $im_Ubuntu  = $row[0];
       echo mysqli_error($connection);
-
+ 
       $req = "SELECT quantite
       FROM machandises
       WHERE nom = 'Ubuntu'";
-      $result = mysqli_query($connection, $req);
+      $result = mysqli_query($connection, $req); 
       $row = $result->fetch_array();
       $quantite_Ubuntu  = $row[0];
       echo mysqli_error($connection);
-
-
-
+ 
+      
+ 
       echo "<div class=\"liste_article\">
       <table>
         <tr>
@@ -131,10 +138,10 @@
         </tr>
       </table>
       </div>";
-
+      
       if(!empty($_POST["numb_velux"]) and $_POST["numb_velux"] > 0){
         $number = $_POST["numb_velux"];
-
+          
         $request = "SELECT quantite
         FROM machandises
         WHERE nom = 'Velux'";
@@ -142,39 +149,39 @@
         echo mysqli_error($connection);
         $row = mysqli_fetch_array($result);
         $res = $row["quantite"] + $number;
-
-        $request = "UPDATE machandises
+        
+        $request = "UPDATE machandises 
         SET quantite = $res
         WHERE nom = 'Velux'";
         mysqli_query($connection, $request);
         mysqli_error($connection);
         header('Location: admin.php');
-        //
-
+        
+        
         $req = "SELECT prix
         FROM machandises
         WHERE nom = 'Velux'";
-        $result = mysqli_query($connection, $req);
+        $result = mysqli_query($connection, $req); 
         $row = $result->fetch_array();
         $prix  = $row[0];
         echo mysqli_error($connection);
-
+      
         $f = fopen('bon_de_commande.txt', 'w');
-
+              
         fprintf($f,"Webos\nRouen\nromain.hebert1@etu.univ-rouen.fr\nalexandre.durand@etu.univ-rouen.fr\n\nDétail de votre commande :\n\n %d Velux\t Prix unitaire : %d euro(s)\t Prix total : %d euro(s),\nCordialement,\n", $number, $prix, $prix * $number);
-
+              
         fclose($f);
-        //
+        
         exit();
-
+        
       } elseif (!empty($_POST["numb_velux"]) and $_POST["numb_velux"] < 0) {
         header('Location: admin.php');
         exit();
       }
-
+      
       if(!empty($_POST["numb_windows10"]) and $_POST["numb_windows10"] > 0){
         $number = $_POST["numb_windows10"];
-
+          
         $request = "SELECT quantite
         FROM machandises
         WHERE nom = 'Windows10'";
@@ -182,39 +189,39 @@
         echo mysqli_error($connection);
         $row = mysqli_fetch_array($result);
         $res = $row["quantite"] + $number;
-
-        $request = "UPDATE machandises
+        
+        $request = "UPDATE machandises 
         SET quantite = $res
         WHERE nom = 'Windows10'";
         mysqli_query($connection, $request);
         mysqli_error($connection);
         header('Location: admin.php');
-        //
-
+        
+        
         $req = "SELECT prix
         FROM machandises
         WHERE nom = 'Windows10'";
-        $result = mysqli_query($connection, $req);
+        $result = mysqli_query($connection, $req); 
         $row = $result->fetch_array();
         $prix  = $row[0];
         echo mysqli_error($connection);
-
+      
         $f = fopen('bon_de_commande.txt', 'w');
-
+              
         fprintf($f,"Webos\nRouen\nromain.hebert1@etu.univ-rouen.fr\nalexandre.durand@etu.univ-rouen.fr\n\nDétail de votre commande :\n\n %d Windows10\t Prix unitaire : %d euro(s)\t Prix total : %d euro(s),\nCordialement,\n", $number, $prix, $prix * $number);
-
+              
         fclose($f);
-        //
+        
         exit();
-
+        
       } elseif (!empty($_POST["numb_windows10"]) and $_POST["numb_windows10"] < 0) {
         header('Location: admin.php');
         exit();
       }
-
+      
       if(!empty($_POST["numb_macos"]) and $_POST["numb_macos"] > 0){
         $number = $_POST["numb_macos"];
-
+          
         $request = "SELECT quantite
         FROM machandises
         WHERE nom = 'MacOS'";
@@ -222,39 +229,39 @@
         echo mysqli_error($connection);
         $row = mysqli_fetch_array($result);
         $res = $row["quantite"] + $number;
-
-        $request = "UPDATE machandises
+        
+        $request = "UPDATE machandises 
         SET quantite = $res
         WHERE nom = 'MacOS'";
         mysqli_query($connection, $request);
         mysqli_error($connection);
         header('Location: admin.php');
-        //
-
+        
+        
         $req = "SELECT prix
         FROM machandises
         WHERE nom = 'MacOS'";
-        $result = mysqli_query($connection, $req);
+        $result = mysqli_query($connection, $req); 
         $row = $result->fetch_array();
         $prix  = $row[0];
         echo mysqli_error($connection);
-
+      
         $f = fopen('bon_de_commande.txt', 'w');
-
+              
         fprintf($f,"Webos\nRouen\nromain.hebert1@etu.univ-rouen.fr\nalexandre.durand@etu.univ-rouen.fr\n\nDétail de votre commande :\n\n %d MacOs\t Prix unitaire : %d euro(s)\t Prix total : %d euro(s),\nCordialement,\n", $number, $prix, $prix * $number);
-
+              
         fclose($f);
-        //
+        
         exit();
-
+        
       } elseif (!empty($_POST["numb_macos"]) and $_POST["numb_macos"] < 0) {
         header('Location: admin.php');
         exit();
       }
-
+      
       if(!empty($_POST["numb_ubuntu"]) and $_POST["numb_ubuntu"] > 0){
         $number = $_POST["numb_ubuntu"];
-
+          
         $request = "SELECT quantite
         FROM machandises
         WHERE nom = 'Ubuntu'";
@@ -262,36 +269,36 @@
         echo mysqli_error($connection);
         $row = mysqli_fetch_array($result);
         $res = $row["quantite"] + $number;
-
-        $request = "UPDATE machandises
+        
+        $request = "UPDATE machandises 
         SET quantite = $res
         WHERE nom = 'Ubuntu'";
         mysqli_query($connection, $request);
         mysqli_error($connection);
         header('Location: admin.php');
-        //
-
+        
+        
         $req = "SELECT prix
         FROM machandises
         WHERE nom = 'Ubuntu'";
-        $result = mysqli_query($connection, $req);
+        $result = mysqli_query($connection, $req); 
         $row = $result->fetch_array();
         $prix  = $row[0];
         echo mysqli_error($connection);
-
+      
         $f = fopen('bon_de_commande.txt', 'w');
-
+              
         fprintf($f,"Webos\nRouen\nromain.hebert1@etu.univ-rouen.fr\nalexandre.durand@etu.univ-rouen.fr\n\nDétail de votre commande :\n\n %d Ubuntu\t Prix unitaire : %d euro(s)\t Prix total : %d euro(s),\nCordialement,\n", $number, $prix, $prix * $number);
-
+              
         fclose($f);
-        //
+        
         exit();
-
+        
       } elseif (!empty($_POST["numb_ubuntu"]) and $_POST["numb_ubuntu"] < 0) {
         header('Location: admin.php');
         exit();
       }
-
+      
       mysqli_close($connection);
     ?>
     </main>

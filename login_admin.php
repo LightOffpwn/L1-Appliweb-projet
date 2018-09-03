@@ -19,7 +19,7 @@
         <p>Mot de passe :<input type="password" name="password"/></p>
         <input type="submit" value="Continuer"/>
       </form>
-
+  
       <?php
         $id = "Romain";
         $mdp = "manivelle";
@@ -32,7 +32,7 @@
             or !isset($id)
             or !isset($post_mdp)
             or !isset($mdp)
-            or ($id !== $post_id)
+            or ($id !== $post_id) 
             or ($mdp !== $post_mdp))
         {
           if(!empty($post_id) or !empty($post_mdp))
@@ -45,7 +45,7 @@
           header('location: admin.php');
           exit();
         }
-
+  
       //echo "<p>Bonjour, {$_POST['Identifiant']} vous avez tapez :{$_POST['Mot de passe']}!</p>";
       ?>
     </main>

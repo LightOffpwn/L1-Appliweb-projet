@@ -5,7 +5,7 @@
     <title>Webos</title>
     <meta charset="utf-8">
   </head>
-
+  
   <body>
     <div id='wrapper'>
     <header>
@@ -16,14 +16,14 @@
     <main>
 
       <h1><p>Bonjour, bienvenue sur WebOS.</p></h1>
-
+      
       <h2><p>
         Notre site propose a toutes les bourses, à partir de 1€, des systèmes d'exploitation performants et reconnues dans le monde entier.<br/>
-
+        
         Achetez dès maintenant sur WebOs parmis un choix de plus de 3 article !
       </p></h2>
-
-
+      
+      
     </main>
     <footer>
       <div>
@@ -37,9 +37,3 @@
     </div>
   </body>
 </html>
-<!--
-http://localhost/projet/index.php-->
-
-<!--
-https://www.000webhost.com/
--->
