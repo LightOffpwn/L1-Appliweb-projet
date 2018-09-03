@@ -14,19 +14,23 @@
       <a class='header_link' href="liste_articles.php">Nos articles</a>
     </header>
     <main>
-      
+
 
       <?php
-      
+
       $server = "inf-mysql.univ-rouen.fr";
       $user = "heberro1";
       $mdp = "09071998";
       $bdd = "heberro12";
-      
+      //$server = "127.0.0.1";
+      //$user = "root";
+      //$mdp = "2580lightoff";
+      //$bdd = "sys";
+
       $connection = mysqli_connect($server,$user,$mdp,$bdd);
       echo mysqli_connect_error();
 
-     
+
       //Velux
       $req = "SELECT adresseimg
       FROM machandises
@@ -35,16 +39,16 @@
       $row = $result->fetch_array();
       $im_Velux  = $row[0];
       echo mysqli_error($connection);
- 
+
       $req = "SELECT prix
       FROM machandises
       WHERE nom = 'Velux'";
-      $result = mysqli_query($connection, $req); 
+      $result = mysqli_query($connection, $req);
       $row = $result->fetch_array();
       $prix_Velux  = $row[0];
       echo mysqli_error($connection);
-      
-      
+
+
       //Windows10
       $req = "SELECT adresseimg
       FROM machandises
@@ -53,15 +57,15 @@
       $row = $result->fetch_array();
       $im_Windows10  = $row[0];
       echo mysqli_error($connection);
- 
+
       $req = "SELECT prix
       FROM machandises
       WHERE nom = 'Windows10'";
-      $result = mysqli_query($connection, $req); 
+      $result = mysqli_query($connection, $req);
       $row = $result->fetch_array();
       $prix_Windows10  = $row[0];
       echo mysqli_error($connection);
-      
+
       //MacOs
       $req = "SELECT adresseimg
       FROM machandises
@@ -70,15 +74,15 @@
       $row = $result->fetch_array();
       $im_MacOs  = $row[0];
       echo mysqli_error($connection);
- 
+
       $req = "SELECT prix
       FROM machandises
       WHERE nom = 'MacOS'";
-      $result = mysqli_query($connection, $req); 
+      $result = mysqli_query($connection, $req);
       $row = $result->fetch_array();
       $prix_MacOs  = $row[0];
       echo mysqli_error($connection);
-      
+
       //Ubuntu
       $req = "SELECT adresseimg
       FROM machandises
@@ -87,18 +91,18 @@
       $row = $result->fetch_array();
       $im_Ubuntu  = $row[0];
       echo mysqli_error($connection);
- 
+
       $req = "SELECT prix
       FROM machandises
       WHERE nom = 'Ubuntu'";
-      $result = mysqli_query($connection, $req); 
+      $result = mysqli_query($connection, $req);
       $row = $result->fetch_array();
       $prix_Ubuntu  = $row[0];
       echo mysqli_error($connection);
- 
-      
- 
-      echo"<div class=\"liste_article\"> 
+
+
+
+      echo"<div class=\"liste_article\">
       <table>
       <tr>
         <td>
@@ -142,7 +146,7 @@
       </tr>
       </table>
    </div>";
-      
+
       mysqli_close($connection);
       ?>
     </main>
